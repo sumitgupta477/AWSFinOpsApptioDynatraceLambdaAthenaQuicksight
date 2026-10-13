@@ -1,0 +1,18 @@
+# Copy to terraform.tfvars and fill in. terraform.tfvars is git-ignored.
+bucket_name = "my-company-cur-bucket-123"
+alert_email = "finops@example.com"
+
+# Optional integrations
+# enable_cloudability      = true
+# cloudability_account_id  = "<from Cloudability>"
+# cloudability_external_id = "<from Cloudability>"
+
+# enable_datadog      = true
+# datadog_external_id = "<from Datadog>"
+
+# enable_dynatrace         = true
+# dynatrace_aws_account_id = "<from Dynatrace>"
+# dynatrace_external_id    = "<from Dynatrace>"
+
+# enable_quicksight = true      # after the first Glue crawl
+# quicksight_user   = "my-quicksight-user"
