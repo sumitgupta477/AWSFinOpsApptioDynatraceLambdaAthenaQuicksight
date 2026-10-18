@@ -29,6 +29,16 @@ Dynatrace / Datadog alert ──webhook + secret──► API Gateway ──► 
 - **Cost-aware storage:** S3 lifecycle rules (CUR to Infrequent Access, Athena results expire) and an Athena per-query scan limit
 - **Infrastructure as code** with Terraform, validated in GitHub Actions
 
+## Background
+
+This platform packages the patterns I used in enterprise FinOps work, including a cloud cost programme at Ford that delivered about **$17M in savings**: make spend visible per team, alert before budgets are blown, and automate the safe, repeatable savings so engineers don't have to remember them.
+
+## Measuring savings
+
+- **Idle-instance automation:** the `FinOps/IdleInstancesStopped` CloudWatch metric counts instances stopped each day. Multiply stopped hours by each instance type's on-demand rate for an estimated saving.
+- **Before/after:** run the saved `daily_cost_trend_last_90_days` query and compare the 30 days before enabling remediation with the 30 days after.
+- **By owner:** add your cost allocation tags (for example `Team`) to the `top_20_resources_this_month` query to see who benefits.
+
 ## Deploy
 
 Prerequisites: Terraform ≥ 1.5, AWS CLI credentials for the **management/payer account** (CUR is defined there), region `us-east-1`.
